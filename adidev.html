@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adharvjith kt | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f5f0e8;
+      --warm-white: #faf7f2;
+      --gold: #b89a5a;
+      --gold-light: #d4b87a;
+      --dark: #1a1410;
+      --brown: #3d2f1f;
+      --mid: #6b5740;
+      --light-brown: #c4a882;
+      --border: #d9cdbf;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background-color: var(--cream);
+      color: var(--dark);
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    .ornament {
+      display: block;
+      text-align: center;
+      color: var(--gold);
+      font-size: 1.4rem;
+      letter-spacing: 8px;
+      margin: 18px 0;
+      opacity: 0.7;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+      background: var(--warm-white);
+      border-bottom: 2px solid var(--border);
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(184,154,90,0.08) 59px, rgba(184,154,90,0.08) 60px),
+        repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(184,154,90,0.08) 59px, rgba(184,154,90,0.08) 60px);
+      pointer-events: none;
+    }
+
+    .header-frame {
+      border: 1px solid var(--gold);
+      padding: 50px 60px;
+      position: relative;
+      max-width: 720px;
+      animation: fadeUp 1s ease both;
+    }
+    .header-frame::before, .header-frame::after {
+      content: '';
+      position: absolute;
+      width: 18px; height: 18px;
+      border-color: var(--gold);
+      border-style: solid;
+    }
+    .header-frame::before { top: -4px; left: -4px; border-width: 2px 0 0 2px; }
+    .header-frame::after  { bottom: -4px; right: -4px; border-width: 0 2px 2px 0; }
+    .corner-tr, .corner-bl {
+      position: absolute;
+      width: 18px; height: 18px;
+      border-color: var(--gold);
+      border-style: solid;
+    }
+    .corner-tr { top: -4px; right: -4px; border-width: 2px 2px 0 0; }
+    .corner-bl { bottom: -4px; left: -4px; border-width: 0 0 2px 2px; }
+
+    header h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 3.6rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--brown);
+      line-height: 1.2;
+      animation: fadeUp 1s ease 0.2s both;
+    }
+    .header-rule {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 18px 0;
+      animation: fadeUp 1s ease 0.3s both;
+    }
+    header h2 {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--mid);
+      font-weight: 400;
+      letter-spacing: 1px;
+      animation: fadeUp 1s ease 0.4s both;
+    }
+    header p {
+      margin-top: 22px;
+      color: var(--mid);
+      font-size: 1.05rem;
+      max-width: 560px;
+      animation: fadeUp 1s ease 0.5s both;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 36px;
+      border: 1px solid var(--gold);
+      color: var(--brown);
+      text-decoration: none;
+      font-family: 'EB Garamond', serif;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.35s ease;
+      background: transparent;
+      animation: fadeUp 1s ease 0.6s both;
+    }
+    .btn:hover { background: var(--gold); color: var(--warm-white); }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--brown);
+      display: flex;
+      justify-content: center;
+      border-bottom: 2px solid var(--gold);
+    }
+    nav a {
+      color: var(--light-brown);
+      text-decoration: none;
+      font-family: 'EB Garamond', serif;
+      font-size: 0.88rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 16px 22px;
+      transition: color 0.25s, background 0.25s;
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    nav a:first-child { border-left: 1px solid rgba(255,255,255,0.07); }
+    nav a:hover { color: var(--gold-light); background: rgba(255,255,255,0.05); }
+
+    section {
+      padding: 80px 20px;
+      max-width: 960px;
+      margin: auto;
+    }
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.2rem;
+      color: var(--brown);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .section-rule {
+      width: 80px; height: 2px;
+      background: var(--gold);
+      margin: 14px auto 0;
+    }
+
+    .card {
+      background: var(--warm-white);
+      padding: 36px 40px;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+    }
+    .card p { color: var(--mid); font-size: 1.05rem; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+    }
+    .skill {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-bottom: 2px solid var(--gold);
+      padding: 20px 16px;
+      text-align: center;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      letter-spacing: 1px;
+      color: var(--brown);
+      transition: all 0.3s ease;
+    }
+    .skill:hover { background: var(--gold); color: var(--warm-white); border-color: var(--gold); transform: translateY(-4px); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .project {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      padding: 30px 26px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold), var(--gold-light));
+    }
+    .project:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(60,40,20,0.12); }
+    .project h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .project p { color: var(--mid); font-size: 1rem; }
+
+    .edu-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      padding: 36px 40px;
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+    }
+    .edu-icon { font-size: 2.4rem; opacity: 0.6; flex-shrink: 0; }
+    .edu-card h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--brown); margin-bottom: 6px; }
+    .edu-card p { color: var(--mid); font-size: 1rem; }
+
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .contact-list li {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 20px;
+      border: 1px solid var(--border);
+      background: var(--warm-white);
+      transition: border-color 0.3s;
+    }
+    .contact-list li:hover { border-color: var(--gold); }
+    .contact-icon { font-size: 1.4rem; width: 36px; text-align: center; flex-shrink: 0; }
+    .contact-label { font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; color: var(--mid); display: block; }
+    .contact-list a { color: var(--brown); text-decoration: none; font-family: 'EB Garamond', serif; font-size: 1.05rem; transition: color 0.25s; }
+    .contact-list a:hover { color: var(--gold); }
+
+    .divider { max-width: 960px; margin: 0 auto; border: none; border-top: 1px solid var(--border); }
+
+    footer {
+      text-align: center;
+      padding: 36px 20px;
+      background: var(--brown);
+      color: var(--light-brown);
+      font-family: 'EB Garamond', serif;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+    }
+    footer .gold { color: var(--gold-light); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      header h1 { font-size: 2.4rem; }
+      .header-frame { padding: 32px 24px; }
+      nav { flex-wrap: wrap; }
+      nav a { padding: 12px 10px; font-size: 0.78rem; letter-spacing: 1.5px; }
+      .card, .edu-card { padding: 24px 20px; }
+      .edu-card { flex-direction: column; gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="home">
+    <div class="header-frame">
+      <div class="corner-tr"></div>
+      <div class="corner-bl"></div>
+      <span class="ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
+      <h1>Adidev k</h1>
+      <div class="header-rule"></div>
+      <h2>Computer Science &amp;communication engineering Student</h2>
+      <p>
+        A passionate student at <em>Vimal Jyothi Engineering College, Chemperi</em>,
+        dedicated to web development, programming, and building practical,
+        creative technology projects.
+      </p>
+      <span class="ornament" style="margin-top:10px;">— &nbsp; &nbsp; —</span>
+      <a href="#about" class="btn">Discover More</a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <div class="section-header">
+      <h2 class="section-title">About Me</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="card">
+      <p>
+        Hello, I am <strong>Adidev k</strong>, a student dedicated to
+        <strong>Computer Science and communication engineering</strong>. I take pleasure in
+        exploring new technologies and continually refining my abilities in
+        programming, web development, and analytical problem-solving.
+        My ambition is to grow into a capable developer and Python professional,
+        crafting solutions that are both useful and impactful.
+      </p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="skills">
+    <div class="section-header">
+      <h2 class="section-title">Skills</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Python</div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="projects">
+    <div class="section-header">
+      <h2 class="section-title">Projects</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="projects-grid">
+      <div class="project">
+        <h3>Preparation of Biodiesel from Used Cooking Oil</h3>
+        <p>A chemisty based project focuses on the purification and partial
+conversion of used cooking oil into a cleaner, fuel-like
+substance.</p>
+      </div>
+      <div class="project">
+        <h3>Gas Leakage Detection System</h3>
+        <p>A physics-based project, a Gas Leakage Detection System it is a safety device that detects the presence of harmful gases.</p>
+      </div>
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>A personal portfolio website crafted to showcase skills, education, and notable projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="education">
+    <div class="section-header">
+      <h2 class="section-title">Education</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <h3>Vimal Jyothi Engineering College, Chemperi</h3>
+        <p>B.Tech in Computer Science &amp; communication engineering</p>
+        <p style="margin-top:4px; font-style:italic; font-size:0.95rem;">First Year &nbsp;·&nbsp; Second Semester</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="contact">
+    <div class="section-header">
+      <h2 class="section-title">Contact</h2>
+      <div class="section-rule"></div>
+    </div>
+    <ul class="contact-list">
+      <li>
+        <span class="contact-icon">✉</span>
+        <div>
+          <span class="contact-label">Email</span>
+          <a href="mailto:kadidev63@gmail.com">kadidev63@gmail.com</a>
+        </div>
+      </li>
+      <li>
+        <span class="contact-icon">☎</span>
+        <div>
+          <span class="contact-label">Phone</span>
+          <a href="tel7736049701">7736049701</a>
+        </div>
+      </li>
+      <li>
+        <span class="contact-icon">in</span>
+        <div>
+          <span class="contact-label">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/adidev-k-b95415386?" target="_blank">Adidev k</a>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <span class="gold">✦</span> &nbsp; © 2026 adidev k &nbsp;·&nbsp; All Rights Reserved &nbsp; <span class="gold">✦</span>
+  </footer>
+
+</body>
+</html>
